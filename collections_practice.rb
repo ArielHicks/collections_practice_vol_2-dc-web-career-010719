@@ -72,3 +72,43 @@ def organize_schools(schools)
   h.merge!(h3)
   h
 end
+
+def merge_data(keys, data)
+  keys.each do |object|
+    matchingProperty = object[:first_name]
+    puts object
+    otherObject = data[0][matchingProperty]
+
+    otherObject.each do |property,value|
+      object[property] = value
+    end
+  end
+end
+
+test_keys =
+    [
+           {
+            :first_name => "blake"
+        },
+           {
+            :first_name => "ashley"
+        }
+    ]
+
+
+test_data = [
+           {
+             "blake" => {
+                :awesomeness => 10,
+                     :height => "74",
+                  :last_name => "johnson"
+            },
+            "ashley" => {
+                :awesomeness => 9,
+                     :height => 60,
+                  :last_name => "dubs"
+            }
+        }
+    ]
+
+  merge_data(test_keys, test_data)
